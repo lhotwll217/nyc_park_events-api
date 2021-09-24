@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  categories: MyString
+  contact_phone: MyString
+  coordinates: MyString
+  description: MyString
+  end_date: MyString
+  end_time: MyString
+  guid: MyString
+  image: MyString
+  link: MyString
+  location: MyString
+  park_ids: MyString
+  park_names: MyString
+  start_date: MyString
+  start_time: MyString
+  title: MyString
+  attended: false
+  user_id: 
+
+two:
+  categories: MyString
+  contact_phone: MyString
+  coordinates: MyString
+  description: MyString
+  end_date: MyString
+  end_time: MyString
+  guid: MyString
+  image: MyString
+  link: MyString
+  location: MyString
+  park_ids: MyString
+  park_names: MyString
+  start_date: MyString
+  start_time: MyString
+  title: MyString
+  attended: false
+  user_id: 
