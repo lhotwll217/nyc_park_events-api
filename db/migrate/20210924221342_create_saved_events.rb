@@ -4,10 +4,10 @@ class CreateSavedEvents < ActiveRecord::Migration[6.1]
       t.string :categories
       t.string :contact_phone
       t.string :coordinates
-      t.string :description
+      t.text :description
       t.string :end_date
       t.string :end_time
-      t.string :guid
+      t.string :guide
       t.string :image
       t.string :link
       t.string :location
@@ -17,7 +17,7 @@ class CreateSavedEvents < ActiveRecord::Migration[6.1]
       t.string :start_time
       t.string :title
       t.boolean :attended
-      t.belongs :user_id
+      t.belongs_to :user
 
       t.timestamps
     end
