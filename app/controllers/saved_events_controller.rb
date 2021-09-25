@@ -9,6 +9,15 @@ class SavedEventsController < ApplicationController
         end
     end
 
+    def index
+        saved_events = SavedEvent.where(user_id: session[:user_id])
+        if saved_events
+            render json: saved_events
+        else
+            render json: {errors: "User info not found :("}, status: :not_found
+        end
+    end
+
     private 
 
     def saved_event_params
