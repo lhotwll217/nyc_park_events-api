@@ -18,6 +18,17 @@ class SavedEventsController < ApplicationController
         end
     end
 
+    def destroy
+        saved_event = SavedEvent.find_by(id: params[:id])
+        if saved_event
+            saved_event.destroy
+            render json: saved_event, status: :no_content
+        else
+            render json: {errors: "Not Found" }, status: :not_found
+        end
+    
+    end
+
     private 
 
     def saved_event_params

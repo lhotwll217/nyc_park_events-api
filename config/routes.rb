@@ -13,5 +13,6 @@ Rails.application.routes.draw do
 
   post "/save_event", to: "saved_events#create"
   get "/saved_events", to: "saved_events#index"
+  delete "/saved_events/:id", to: "saved_events#destroy"
 
 end
