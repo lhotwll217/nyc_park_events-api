@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   get "/saved_events", to: "saved_events#index"
   delete "/saved_events/:id", to: "saved_events#destroy"
 
+#Profile Routes
+  post "/profile", to: "profiles#create"
+  patch "/profile", to: "profiles#update"
+
 end
