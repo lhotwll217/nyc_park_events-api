@@ -9,6 +9,18 @@ class NotificationsController < ApplicationController
         end
     end
 
+    def destroy
+
+        notification = Notification.find_by(id: params[:id])
+        if notification
+            notification.destroy
+            render json: notification, status: :no_content
+        else
+            render json: {errors: "Not found"}, status: :not_found
+        end
+
+    end
+
     private
 
     def notification_params
