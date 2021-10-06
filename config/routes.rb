@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notifications
   resources :profiles
   resources :saved_events
 

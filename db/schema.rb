@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_29_211041) do
+ActiveRecord::Schema.define(version: 2021_10_01_145903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "saved_event_id", null: false
+    t.integer "hours_before"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["saved_event_id"], name: "index_notifications_on_saved_event_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -57,5 +65,6 @@ ActiveRecord::Schema.define(version: 2021_09_29_211041) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "notifications", "saved_events"
   add_foreign_key "profiles", "users"
 end
