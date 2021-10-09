@@ -3,8 +3,8 @@ class CreateEvents < ActiveRecord::Migration[6.1]
     create_table :events do |t|
       t.string :categories
       t.string :contact_phone
-      t.decimal :latitude
-      t.decimal :longitude 
+      t.float :latitude
+      t.float :longitude 
       t.text :description
       t.string :end_date
       t.string :end_time
