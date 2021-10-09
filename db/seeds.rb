@@ -21,17 +21,13 @@ events_array.each do |e|
 
     end
 
-    start_date_time = (e['start_date'] + " " + e['start_time']).to_datetime
+    start_date_time = (e['startdate'] + " " + e['starttime']).to_datetime
 
-    end_date_time = (e['start_date'] + " " + e['end_time']).to_datetime
+    end_date_time = (e['startdate'] + " " + e['endtime']).to_datetime
 
+    count = count + 1
 
-
-    
-    
-    
-
-    Event.create( title: e["title"], guide: e["guide"], description: e["description"], end_date: e["enddate"], park_ids: e["parkids"], park_names: e["parknames"], start_date: e["startdate"], start_time: e["starttime"], end_time: e["endtime"], contact_phone: e["contact_phone"], image: e["image"], categories: e["categories"], location: e["location"], link: e["link"], latitude: latitude , longitude: longitude)
+    Event.create( title: e["title"], guide: e["guide"], description: e["description"], park_ids: e["parkids"], park_names: e["parknames"], start_date_time: start_date_time, end_date_time: end_date_time, contact_phone: e["contact_phone"], image: e["image"], categories: e["categories"], location: e["location"], link: e["link"], latitude: latitude , longitude: longitude)
 
 end
 

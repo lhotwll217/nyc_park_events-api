@@ -21,16 +21,14 @@ ActiveRecord::Schema.define(version: 2021_10_09_000936) do
     t.float "latitude"
     t.float "longitude"
     t.text "description"
-    t.string "end_date"
-    t.string "end_time"
+    t.datetime "end_date_time"
+    t.datetime "start_date_time"
     t.string "guide"
     t.string "image"
     t.string "link"
     t.string "location"
     t.string "park_ids"
     t.string "park_names"
-    t.string "start_date"
-    t.string "start_time"
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

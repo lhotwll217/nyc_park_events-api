@@ -6,16 +6,14 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.float :latitude
       t.float :longitude 
       t.text :description
-      t.string :end_date
-      t.string :end_time
+      t.datetime :end_date_time
+      t.datetime :start_date_time
       t.string :guide
       t.string :image
       t.string :link
       t.string :location
       t.string :park_ids
       t.string :park_names
-      t.string :start_date
-      t.string :start_time
       t.string :title
      
 
