@@ -4,6 +4,7 @@ response = RestClient.get(ENV["BASE_URL"])
 
 events_array = JSON.parse(response)
 
+binding.pry
 
 count = 0
 
@@ -21,9 +22,9 @@ events_array.each do |e|
 
     end
 
-    start_date_time = (e['startdate'] + " " + e['starttime']).to_datetime
+    start_date_time = (e['startdate'] + " " + e['starttime']+"-04:00").to_datetime
 
-    end_date_time = (e['startdate'] + " " + e['endtime']).to_datetime
+    end_date_time = (e['startdate'] + " " + e['endtime']+"-04:00").to_datetime
 
     count = count + 1
 
