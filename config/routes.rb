@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  resources :events
-  resources :notifications
-  resources :profiles
-  resources :saved_events
-
+get "/events", to: "events#index"
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
