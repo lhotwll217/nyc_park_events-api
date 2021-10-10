@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  resources :events
-  resources :notifications
-  resources :profiles
-  resources :saved_events
 
 
   post "/signup", to: "users#create"

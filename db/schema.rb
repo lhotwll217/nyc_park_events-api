@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_09_000936) do
+ActiveRecord::Schema.define(version: 2021_10_10_012929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,14 +34,6 @@ ActiveRecord::Schema.define(version: 2021_10_09_000936) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.bigint "saved_event_id", null: false
-    t.integer "hours_before"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["saved_event_id"], name: "index_notifications_on_saved_event_id"
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "address"
@@ -53,25 +45,12 @@ ActiveRecord::Schema.define(version: 2021_10_09_000936) do
   end
 
   create_table "saved_events", force: :cascade do |t|
-    t.string "categories"
-    t.string "contact_phone"
-    t.string "coordinates"
-    t.text "description"
-    t.string "end_date"
-    t.string "end_time"
-    t.string "guide"
-    t.string "image"
-    t.string "link"
-    t.string "location"
-    t.string "park_ids"
-    t.string "park_names"
-    t.string "start_date"
-    t.string "start_time"
-    t.string "title"
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
     t.boolean "attended"
-    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_saved_events_on_event_id"
     t.index ["user_id"], name: "index_saved_events_on_user_id"
   end
 
@@ -84,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_000936) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "notifications", "saved_events"
   add_foreign_key "profiles", "users"
+  add_foreign_key "saved_events", "events"
+  add_foreign_key "saved_events", "users"
 end

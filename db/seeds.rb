@@ -4,7 +4,7 @@ response = RestClient.get(ENV["BASE_URL"])
 
 events_array = JSON.parse(response)
 
-binding.pry
+
 
 count = 0
 
