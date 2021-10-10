@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+get "/events", to: "events#index"
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
