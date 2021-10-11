@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notifications
 get "/events", to: "events#index"
 
   post "/signup", to: "users#create"
