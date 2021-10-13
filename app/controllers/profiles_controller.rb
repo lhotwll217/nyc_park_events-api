@@ -3,19 +3,25 @@ class ProfilesController < ApplicationController
     def create 
 
         profile = Profile.create(profile_params)
-        if profile
+        if profile.valid?
             render json: profile, status: :created
         else
-            render json: {errors: "Not Created"}, status: :unprocessable_entity
+            render json: {errors: profile.errors.full_messages }, status: :unprocessable_entity
         end 
-    
+
     end
 
     def update
         profile = Profile.find_by(user_id: params[:user_id])
         profile.update(profile_params)
 
-        render json: profile, status: :accepted
+        if profile.valid?
+            render json: profile, status: :accepted
+        else
+            render json: {errors: profile.errors.full_messages}, status: :unprocessable_entity
+        end 
+
+
     end
 
     private
