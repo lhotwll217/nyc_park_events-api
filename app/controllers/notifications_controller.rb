@@ -3,10 +3,10 @@ class NotificationsController < ApplicationController
     def create
 
         notification = Notification.create(notification_params)
-        if notification
+        if notification.valid?
         render json: notification, status: :created
         else
-            render json: {errors: "Not Created" } , status: :unprocessable_entity
+            render json: {errors: notification.errors.full_messages }, status: :unprocessable_entity
         end
 
     end
