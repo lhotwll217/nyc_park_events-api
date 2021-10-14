@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
     def index 
 
-        events = Event.where('end_date_time > ?',  DateTime.current).order('start_date_time ASC').limit(300)
+        events = Event.where('end_date_time > ?',  DateTime.current).order('start_date_time ASC').limit(400)
     
         if events
             render json: events, status: :ok
