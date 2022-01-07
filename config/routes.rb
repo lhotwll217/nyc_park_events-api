@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :notifications
 get "/events", to: "events#index"
+get "/paginate/:page", to: "events#paginate"
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
