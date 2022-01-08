@@ -15,8 +15,8 @@ class EventsController < ApplicationController
 
         puts params[:page]
 
-        events = Event.where('end_date_time > ?',  DateTime.current).order('start_date_time ASC'
-        ).page(params[:page]).per(6)
+        events = Event.where('end_date_time > ?',  DateTime.current).order('start_date_time ASC, id'
+        ).page(params[:page]).per(10)
 
         if events
             render json: events, status: :ok
