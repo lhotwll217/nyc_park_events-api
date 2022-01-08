@@ -13,8 +13,10 @@ class EventsController < ApplicationController
 
     def paginate
 
+        puts params[:page]
+
         events = Event.where('end_date_time > ?',  DateTime.current).order('start_date_time ASC'
-        ).page(params[:page]).per(20)
+        ).page(params[:page]).per(6)
 
         if events
             render json: events, status: :ok
