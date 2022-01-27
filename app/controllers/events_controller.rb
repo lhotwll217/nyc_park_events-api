@@ -5,16 +5,14 @@ class EventsController < ApplicationController
 
         if params[:search] && params[:search].include?(' ') 
         spacedSearch= params[:search].split
-        
-      
         end
         
         events = Event.where('end_date_time > ?',  DateTime.current).order('start_date_time ASC, id')
         events = events.filter_by_date(params[:date]) if params[:date].present?
         if spacedSearch
-            spacedSearch.each { |s| events = events.where('title ILIKE :search OR categories ILIKE :search', search: "%#{s}%" )}
+            spacedSearch.each { |s| events = events.filter_by_searchbar(params[:search])}
         else
-            events = events.where('title ILIKE :search OR categories ILIKE :search', search: "%#{params[:search]}%" ) if params[:search].present?
+            events = events.filter_by_searchbar(params[:search]) if params[:search].present?
         end
         events = events.page(params[:page]).per(12)
         if events
