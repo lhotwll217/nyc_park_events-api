@@ -22,9 +22,9 @@ events_array.each do |e|
 
     end
 
-    start_date_time = (e['startdate'] + " " + e['starttime']+"-05:00").to_datetime
+    start_date_time = (e['startdate'] + " " + e['starttime']+"-04:00").to_datetime
 
-    end_date_time = (e['startdate'] + " " + e['endtime']+"-05:00").to_datetime
+    end_date_time = (e['startdate'] + " " + e['endtime']+"-04:00").to_datetime
 
     count = count + 1
 
